@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:bezier_chart/bezier_chart.dart';
+// import 'package:bezier_chart/bezier_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/providers/subjects.dart';
 import 'package:quiz_app/screens/quiz_start_screen.dart';
@@ -161,47 +161,47 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget sample3(BuildContext context) {
-  final fromDate = DateTime(2019, 05, 22);
-  final toDate = DateTime.now();
+// Widget sample3(BuildContext context) {
+//   final fromDate = DateTime(2019, 05, 22);
+//   final toDate = DateTime.now();
 
-  final date1 = DateTime.now().subtract(Duration(days: 2));
-  final date2 = DateTime.now().subtract(Duration(days: 3));
+//   final date1 = DateTime.now().subtract(Duration(days: 2));
+//   final date2 = DateTime.now().subtract(Duration(days: 3));
 
-  return Center(
-    child: Container(
-      color: Colors.red,
-      height: MediaQuery.of(context).size.height / 2,
-      width: MediaQuery.of(context).size.width,
-      child: BezierChart(
-        fromDate: fromDate,
-        bezierChartScale: BezierChartScale.WEEKLY,
-        toDate: toDate,
-        selectedDate: toDate,
-        series: [
-          BezierLine(
-            label: "Duty",
-            onMissingValue: (dateTime) {
-              if (dateTime.day.isEven) {
-                return 10.0;
-              }
-              return 5.0;
-            },
-            data: [
-              DataPoint<DateTime>(value: 10, xAxis: date1),
-              DataPoint<DateTime>(value: 50, xAxis: date2),
-            ],
-          ),
-        ],
-        config: BezierChartConfig(
-          verticalIndicatorStrokeWidth: 3.0,
-          verticalIndicatorColor: Colors.black26,
-          showVerticalIndicator: true,
-          verticalIndicatorFixedPosition: false,
-          backgroundColor: Colors.red,
-          footerHeight: 30.0,
-        ),
-      ),
-    ),
-  );
-}
+//   return Center(
+//     child: Container(
+//       color: Colors.red,
+//       height: MediaQuery.of(context).size.height / 2,
+//       width: MediaQuery.of(context).size.width,
+//       child: BezierChart(
+//         fromDate: fromDate,
+//         bezierChartScale: BezierChartScale.WEEKLY,
+//         toDate: toDate,
+//         selectedDate: toDate,
+//         series: [
+//           BezierLine(
+//             label: "Duty",
+//             onMissingValue: (dateTime) {
+//               if (dateTime.day.isEven) {
+//                 return 10.0;
+//               }
+//               return 5.0;
+//             },
+//             data: [
+//               DataPoint<DateTime>(value: 10, xAxis: date1),
+//               DataPoint<DateTime>(value: 50, xAxis: date2),
+//             ],
+//           ),
+//         ],
+//         config: BezierChartConfig(
+//           verticalIndicatorStrokeWidth: 3.0,
+//           verticalIndicatorColor: Colors.black26,
+//           showVerticalIndicator: true,
+//           verticalIndicatorFixedPosition: false,
+//           backgroundColor: Colors.red,
+//           footerHeight: 30.0,
+//         ),
+//       ),
+//     ),
+//   );
+// }

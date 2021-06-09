@@ -90,7 +90,13 @@ class _NewsScreenState extends State<NewsScreen> {
                                           ),
                                         ),
                                       ),
-                                      VerticalDivider(),
+                                      // VerticalDivider(
+                                      //   indent: 10,
+                                      //   thickness: 5,
+                                      // ),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
                                       Expanded(
                                         child: Column(
                                           mainAxisAlignment:

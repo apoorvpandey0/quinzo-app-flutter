@@ -43,9 +43,9 @@ class Articles with ChangeNotifier {
   }
 
   Future<void> getAndSetArticles() async {
-    final url = 'http://newsapi.org/v2/top-headlines?' +
+    final url = Uri.parse('http://newsapi.org/v2/top-headlines?' +
         'country=in&' +
-        'apiKey=c28a2ae746814b82995771ad144d96a4';
+        'apiKey=c28a2ae746814b82995771ad144d96a4');
     final response = await http.get(url);
     // print(json.decode(response.body)['articles']);
     setArticlesFromJson(json.decode(response.body));

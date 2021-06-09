@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/providers/auth.dart';
 import 'package:quiz_app/providers/settings.dart';
-import 'package:audioplayers/audio_cache.dart';
+// import 'package:audioplayers/audio_cache.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool quizReminders = true;
   bool darkMode;
-  final player = AudioCache();
+  // final player = AudioCache();
 
   @override
   Widget build(BuildContext context) {

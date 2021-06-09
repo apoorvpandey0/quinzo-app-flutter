@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
+import 'package:quiz_app/providers/helpers/url.dart';
 
 import 'package:quiz_app/providers/question.dart';
 
@@ -207,8 +208,7 @@ class Quiz with ChangeNotifier {
   }
 
   Future<void> getAndSetQuestions() async {
-    final url =
-        'https://quinzo.azurewebsites.net/question/by_subject/$selectedSubject';
+    final url = Uri.parse(BASE_URL + 'question/by_subject/$selectedSubject');
 
     final response =
         await http.get(url, headers: {'Authorization': 'Token $_authToken'});

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:quiz_app/providers/helpers/url.dart';
 
 class Paper {
   final String title;
@@ -12,7 +13,7 @@ class Papers with ChangeNotifier {
 
   String _authToken;
   void getAndSetPapers() async {
-    final url = 'https://quinzo.azurewebsites.net/papers';
+    final url = Uri.parse(BASE_URL + 'papers');
     final response = await http.get(url);
     print(response.body);
   }

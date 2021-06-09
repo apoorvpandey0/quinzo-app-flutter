@@ -53,7 +53,7 @@ class Auth extends ChangeNotifier {
     const API_KEY = 'AIzaSyAKxegToL_LuMfv5UmHNfwpeVJ-eZ_2dII';
     // final String url =
     // 'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=$API_KEY';
-    final String url = BASE_URL + urlSegment;
+    final url = Uri.parse(BASE_URL + urlSegment + "/");
     print(username);
     print(email);
     print(password);
@@ -76,7 +76,7 @@ class Auth extends ChangeNotifier {
           urlSegment == 'login') {
         // print('adadadad');
         // print('asflicubadsivubdsiuvbil${extractedData['token']}');
-        _token = extractedData['token'];
+        _token = extractedData['access'];
         _userName = username;
       }
       if (response.statusCode < 200 || response.statusCode >= 300) {
@@ -101,7 +101,7 @@ class Auth extends ChangeNotifier {
       });
       prefs.setString('userData', userData);
     } catch (error) {
-      print("Thrown error from try catch");
+      print("Thrown error from try catch, $error");
       throw error;
     }
   }
