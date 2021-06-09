@@ -169,24 +169,25 @@ class _ProfilePageState extends State<ProfilePage> {
                       onTap: () async {
                         await showDialog(
                             context: context,
-                            child: AlertDialog(
-                              content: Text('Do you really wish to log out?'),
-                              actions: [
-                                FlatButton(
-                                    onPressed: () {
-                                      if (settingsData.darkMode)
-                                        settingsData.toggleAppMode();
-                                      auth.logout();
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text('Yeah')),
-                                FlatButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text('Nopes'))
-                              ],
-                            ));
+                            builder: (context) => AlertDialog(
+                                  content:
+                                      Text('Do you really wish to log out?'),
+                                  actions: [
+                                    FlatButton(
+                                        onPressed: () {
+                                          if (settingsData.darkMode)
+                                            settingsData.toggleAppMode();
+                                          auth.logout();
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('Yeah')),
+                                    FlatButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('Nopes'))
+                                  ],
+                                ));
                       },
                       // trailing: CupertinoSwitch(value: true, onChanged: (ctx) {}),
                     )

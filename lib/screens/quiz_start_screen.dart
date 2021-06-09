@@ -16,17 +16,17 @@ class _QuizStartScreenState extends State<QuizStartScreen> {
   // }
   void showStartDialog(context) async {
     await showDialog(
-        context: context,
-        child: AlertDialog(
-          content: Text('Start kar de bhai'),
-          actions: [
-            FlatButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('Hao'))
-          ],
-        ));
+        builder: (context) => AlertDialog(
+              content: Text('Start kar de bhai'),
+              actions: [
+                FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Hao'))
+              ],
+            ),
+        context: context);
   }
 
   @override

@@ -205,27 +205,27 @@ class _QuizScreenState extends State<QuizScreen> {
                               child: Text('Submit'),
                               onPressed: () {
                                 showDialog(
-                                    context: context,
-                                    child: AlertDialog(
-                                      actions: [
-                                        FlatButton(
-                                          onPressed: () {
-                                            quizData.endQuiz();
-                                            Navigator.of(context).pushNamed(
-                                                ResultScreen.routeName);
-                                          },
-                                          child: Text('Yes'),
+                                    builder: (context) => AlertDialog(
+                                          actions: [
+                                            FlatButton(
+                                              onPressed: () {
+                                                quizData.endQuiz();
+                                                Navigator.of(context).pushNamed(
+                                                    ResultScreen.routeName);
+                                              },
+                                              child: Text('Yes'),
+                                            ),
+                                            FlatButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Text('No'),
+                                            )
+                                          ],
+                                          content: Text(
+                                              'Do you really want to submit your Quiz?'),
                                         ),
-                                        FlatButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: Text('No'),
-                                        )
-                                      ],
-                                      content: Text(
-                                          'Do you really want to submit your Quiz?'),
-                                    ));
+                                    context: context);
                               },
                             )
                           : Container()
