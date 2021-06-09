@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:quiz_app/providers/helpers/url.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:shop_app/models/http_exception.dart';
 
@@ -52,7 +53,7 @@ class Auth extends ChangeNotifier {
     const API_KEY = 'AIzaSyAKxegToL_LuMfv5UmHNfwpeVJ-eZ_2dII';
     // final String url =
     // 'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=$API_KEY';
-    final String url = 'https://quinzo.azurewebsites.net/$urlSegment';
+    final String url = BASE_URL + urlSegment;
     print(username);
     print(email);
     print(password);
