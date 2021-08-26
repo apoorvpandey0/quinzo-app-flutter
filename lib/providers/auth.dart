@@ -74,10 +74,12 @@ class Auth extends ChangeNotifier {
       if (response.statusCode >= 200 &&
           response.statusCode < 300 &&
           urlSegment == 'login') {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
         // print('adadadad');
         // print('asflicubadsivubdsiuvbil${extractedData['token']}');
         _token = extractedData['access'];
         _userName = username;
+        prefs.setString("token", _token);
       }
       if (response.statusCode < 200 || response.statusCode >= 300) {
         print("Thrown error from _authenticate");
@@ -126,11 +128,11 @@ class Auth extends ChangeNotifier {
 
   Future<bool> tryAutoLogin() async {
     final prefs = await SharedPreferences.getInstance();
-    if (!prefs.containsKey('userData')) {
+    if (!prefs.containsKey('token')) {
       return false;
     }
     final extractedUserData =
-        json.decode(prefs.getString('userData')) as Map<String, Object>;
+        json.decode(prefs.getString('token')) as Map<String, Object>;
     final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
     if (expiryDate.isBefore(DateTime.now())) {
       return false;

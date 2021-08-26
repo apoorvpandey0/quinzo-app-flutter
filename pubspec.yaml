@@ -39,7 +39,6 @@ dependencies:
   random_color: ^1.0.6-nullsafety
   url_launcher: ^6.0.6
   avatar_glow: ^2.0.1
-  audioplayers: ^0.19.0
   shared_preferences: ^2.0.6
 
 
