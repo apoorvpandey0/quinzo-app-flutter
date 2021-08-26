@@ -6,7 +6,7 @@ import 'package:quiz_app/providers/subjects.dart';
 class AnalysisPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final subjectsData = Provider.of<Subjects>(context);
+    final subjectsData = Provider.of<SubjectsProvider>(context);
     return Column(
       children: [
         // Padding(

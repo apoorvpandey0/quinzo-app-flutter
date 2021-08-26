@@ -13,6 +13,7 @@ import 'package:quiz_app/screens/home_screen.dart';
 import 'package:quiz_app/screens/quiz_screen.dart';
 import 'package:quiz_app/screens/quiz_start_screen.dart';
 import 'package:quiz_app/screens/results_screen.dart';
+import 'package:quiz_app/screens/subjects_tests_screen.dart';
 
 void main() {
   runApp(InterMediate());
@@ -45,17 +46,14 @@ class MyApp extends StatelessWidget {
           create: (ctx) => Quiz(),
         ),
         ChangeNotifierProvider(
-          create: (ctx) => Subjects(),
-        ),
-        ChangeNotifierProvider(
           create: (ctx) => Articles(),
         ),
         ChangeNotifierProvider(
           create: (ctx) => PapersProvider(),
         ),
-        ChangeNotifierProxyProvider<AuthProvider, Subjects>(
-          create: (ctx) => Subjects(),
-          update: (ctx, auth, previousOrderObject) => Subjects()
+        ChangeNotifierProxyProvider<AuthProvider, SubjectsProvider>(
+          create: (ctx) => SubjectsProvider(),
+          update: (ctx, auth, previousOrderObject) => SubjectsProvider()
             ..updateProxyMethod(
                 auth.token, previousOrderObject.subjects, auth.user.username),
         ),
@@ -86,6 +84,7 @@ class MyApp extends StatelessWidget {
           ResultScreen.routeName: (ctx) => ResultScreen(),
           QuizStartScreen.routeName: (ctx) => QuizStartScreen(),
           ArticleDetailScreen.routeName: (ctx) => ArticleDetailScreen(),
+          SubjectTestsScreen.routeName: (ctx) => SubjectTestsScreen(),
         },
       ),
     );
