@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/providers/helpers/url.dart';
+import 'package:quiz_app/utils/api_constants.dart';
 
 class Paper {
   final String title;
@@ -13,7 +13,7 @@ class Papers with ChangeNotifier {
 
   String _authToken;
   void getAndSetPapers() async {
-    final url = Uri.parse(BASE_URL + 'papers');
+    final Uri url = Uri.parse(APIConstants.GET_PAPERS_URL);
     final response = await http.get(url);
     print(response.body);
   }

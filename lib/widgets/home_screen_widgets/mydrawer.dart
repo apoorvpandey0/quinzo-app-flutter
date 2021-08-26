@@ -21,7 +21,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Provider.of<Auth>(context);
+    final auth = Provider.of<AuthProvider>(context);
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.70,
       child: ClipRRect(
@@ -64,7 +64,7 @@ class _MyDrawerState extends State<MyDrawer> {
                             children: [
                               FittedBox(
                                 child: Text(
-                                  auth.userName,
+                                  auth.user.username,
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),

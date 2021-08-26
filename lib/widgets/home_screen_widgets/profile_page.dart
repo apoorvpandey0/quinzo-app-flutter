@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     final settingsData = Provider.of<Settings>(context);
     darkMode = settingsData.darkMode;
-    final auth = Provider.of<Auth>(context);
+    final auth = Provider.of<AuthProvider>(context);
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -59,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              auth.userName,
+                              auth.user.username,
                               style: TextStyle(color: Colors.white),
                             ),
                             Text(

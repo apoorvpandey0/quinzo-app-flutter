@@ -4,64 +4,12 @@ import 'package:flutter/foundation.dart';
 
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/providers/helpers/url.dart';
 
-import 'package:quiz_app/providers/question.dart';
+import 'package:quiz_app/models/question.dart';
+import 'package:quiz_app/utils/api_constants.dart';
 
 class Quiz with ChangeNotifier {
-  List<Question> _questions = [
-    // Question(
-    //   id: 'asas',
-    //   marks: 5,
-    //   title: "What is the capital of India?",
-    //   answerId: "3",
-    //   solution: "dfjkn dsljfa",
-    //   choices: {
-    //     '1': 'Haryana',
-    //     '2':
-    //         'Tamil NaduUUUU UADAND  jnijanfdijn ashjbasjhbas ashabs aius as a uish aiusn a sah',
-    //     '3': 'Delhi',
-    //     '4': 'Uttrakhand'
-    //   },
-    // ),
-    // Question(
-    //   id: 'asas1',
-    //   marks: 5,
-    //   title: "National bird of India",
-    //   answerId: "4",
-    //   solution: "dfjkn dsljfa",
-    //   choices: {
-    //     '1': 'Kingfisher',
-    //     '2': 'Mamuli chidiya(Sparrow)',
-    //     '3': 'Dove',
-    //     '4': 'Peacock'
-    //   },
-    // ),
-    // Question(
-    //   id: 'asas2',
-    //   marks: 5,
-    //   title: "What is the capital of Madhya Pradesh",
-    //   answerId: "2",
-    //   solution: "dfjkn dsljfa",
-    //   choices: {'1': 'Indore', '2': 'Bhopal', '3': 'Gwalior', '4': 'Jabalpur'},
-    // ),
-    // Question(
-    //   id: 'asas3',
-    //   marks: 5,
-    //   title: "How many moons does mars has?",
-    //   answerId: "4",
-    //   solution: "dfjkn dsljfa",
-    //   choices: {'1': '4', '2': '1', '3': '0', '4': '2'},
-    // ),
-    // Question(
-    //   id: 'asas4',
-    //   marks: 5,
-    //   title: "Which is your favourite color?",
-    //   answerId: "4",
-    //   solution: "dfjkn dsljfa",
-    //   choices: {'1': 'Pink', '2': 'Black', '3': 'Turquoise', '4': 'Narangi'},
-    // ),
-  ];
+  List<Question> _questions = [];
 
   Map<String, String> userAnswers = {};
 
@@ -208,7 +156,8 @@ class Quiz with ChangeNotifier {
   }
 
   Future<void> getAndSetQuestions() async {
-    final url = Uri.parse(BASE_URL + 'question/by_subject/$selectedSubject');
+    final Uri url =
+        Uri.parse(APIConstants.GET_QUESTIONS_BY_SUBJECT_URL + selectedSubject);
 
     final response =
         await http.get(url, headers: {'Authorization': 'Token $_authToken'});

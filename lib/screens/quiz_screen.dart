@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app/providers/question.dart';
+import 'package:quiz_app/models/question.dart';
 import 'package:quiz_app/providers/quiz.dart';
 import 'package:quiz_app/screens/results_screen.dart';
 import 'package:quiz_app/widgets/quiz_screen_widgets/quiz_drawer.dart';

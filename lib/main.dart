@@ -25,7 +25,7 @@ class InterMediate extends StatelessWidget {
         create: (ctx) => Settings(),
       ),
       ChangeNotifierProvider(
-        create: (ctx) => Auth(),
+        create: (ctx) => AuthProvider(),
       ),
     ], child: MyApp());
   }
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<Settings>(context);
-    final auth = Provider.of<Auth>(context);
+    final auth = Provider.of<AuthProvider>(context);
     print(auth.isAuth);
     return MultiProvider(
       providers: [
@@ -49,17 +49,17 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => Articles(),
         ),
-        ChangeNotifierProxyProvider<Auth, Subjects>(
+        ChangeNotifierProxyProvider<AuthProvider, Subjects>(
           create: (ctx) => Subjects(),
           update: (ctx, auth, previousOrderObject) => Subjects()
             ..updateProxyMethod(
-                auth.token, previousOrderObject.subjects, auth.userName),
+                auth.token, previousOrderObject.subjects, auth.user.username),
         ),
-        ChangeNotifierProxyProvider<Auth, Quiz>(
+        ChangeNotifierProxyProvider<AuthProvider, Quiz>(
           create: (ctx) => Quiz(),
           update: (ctx, auth, previousOrderObject) => Quiz()
             ..updateProxyMethod(
-                auth.token, previousOrderObject.questions, auth.userName),
+                auth.token, previousOrderObject.questions, auth.user.username),
         ),
       ],
       child: MaterialApp(

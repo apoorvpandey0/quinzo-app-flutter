@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:quiz_app/providers/helpers/url.dart';
+import 'package:quiz_app/utils/api_constants.dart';
 
 class Subject with ChangeNotifier {
   final String id;
@@ -60,10 +60,7 @@ class Subjects with ChangeNotifier {
   }
 
   Future<void> getAndSetSubjects() async {
-    // http://127.0.0.1:8000/subjects
-    // print(_authToken);
-    final url = Uri.parse(BASE_URL + 'subjects');
-    // final url = 'http://127.0.0.1:8000/subjects';
+    final Uri url = Uri.parse(APIConstants.GET_SUBJECTS_URL);
     final response = await http.get(url, headers: {
       'Authorization': 'Token $_authToken',
       'Content-Type': 'application/json'

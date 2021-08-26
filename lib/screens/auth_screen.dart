@@ -177,12 +177,12 @@ class _AuthCardState extends State<AuthCard>
       if (_authMode == AuthMode.Login) {
         // Log user in
         print('LOGIN REQUESTED');
-        await Provider.of<Auth>(context, listen: false).signIn(
+        await Provider.of<AuthProvider>(context, listen: false).signIn(
             _authData['username'], _authData['email'], _authData['password']);
       } else {
         // Sign user up
         print('SIGNUP REQUESTED');
-        await Provider.of<Auth>(context, listen: false).signUp(
+        await Provider.of<AuthProvider>(context, listen: false).signUp(
             _authData['username'], _authData['email'], _authData['password']);
       }
     } on HttpException catch (error) {
