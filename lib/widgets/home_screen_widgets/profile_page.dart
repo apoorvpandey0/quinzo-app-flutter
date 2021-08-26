@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 // import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/providers/auth.dart';
+import 'package:quiz_app/providers/papers.dart';
 import 'package:quiz_app/providers/settings.dart';
 // import 'package:audioplayers/audio_cache.dart';
 
@@ -153,6 +154,31 @@ class _ProfilePageState extends State<ProfilePage> {
                       endIndent: 30,
                     ),
                     ListTile(
+                      onTap: () async {
+                        List<PaperModel> papers =
+                            await Provider.of<PapersProvider>(context,
+                                    listen: false)
+                                .getAndSetPapers();
+                        showDialog(
+                            context: context,
+                            builder: (_) => AlertDialog(
+                                  title: Text("Select paper:"),
+                                  content: Container(
+                                      height: 300,
+                                      width: 300,
+                                      child: ListView.builder(
+                                        itemCount: papers.length,
+                                        itemBuilder: (context, index) =>
+                                            ListTile(
+                                          onTap: () {
+                                            //           await Provider.of<PapersProvider>(context,
+                                            // listen: false).
+                                          },
+                                          title: Text(papers[index].title),
+                                        ),
+                                      )),
+                                ));
+                      },
                       leading: Icon(Icons.star_border),
                       title: Text('SSC CGL'),
                       trailing: Icon(Icons.navigate_next),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/providers/auth.dart';
 import 'package:quiz_app/providers/news.dart';
+import 'package:quiz_app/providers/papers.dart';
 import 'package:quiz_app/providers/quiz.dart';
 import 'package:quiz_app/providers/subjects.dart';
 import 'package:quiz_app/providers/settings.dart';
@@ -48,6 +49,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (ctx) => Articles(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => PapersProvider(),
         ),
         ChangeNotifierProxyProvider<AuthProvider, Subjects>(
           create: (ctx) => Subjects(),
