@@ -189,12 +189,13 @@ class _AuthCardState extends State<AuthCard>
       print('Pakada gyi exception');
       print(error);
       _showAlert(error.toString());
-      // if (error.toString().contains('EMAIL_NOT_FOUND')) {
-      //   _showAlert(
-      //       'This email does not exists in our servers. Try signing up first.');
-      // }
+      if (error.toString().contains('EMAIL_NOT_FOUND')) {
+        _showAlert(
+            'This email does not exists in our servers. Try signing up first.');
+      }
     } catch (error) {
       _showAlert('Could not authenticate you.Please try later.');
+      print(error);
     }
     setState(() {
       _isLoading = false;
