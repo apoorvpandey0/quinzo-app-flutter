@@ -1,5 +1,6 @@
-Quinzo Flutter app
-Integrated with Django backend
+Quinzo Flutter app <br>
+Integrated with Django backend <br>
+Link: https://github.com/apoorvpandey0/quinzo-backend
 
 <p align="center">
   <img src="Readme/ss4.jpeg" width="200" />
